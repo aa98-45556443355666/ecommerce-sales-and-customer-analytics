@@ -1,0 +1,19 @@
+project:
+  name: ecommerce-sales-and-customer-analytics
+  country: India
+
+data:
+  output_dir: data/raw
+  sample_dir: data/sample
+
+generation:
+  seed: 42
+
+  customers: 100000
+  products: 5000
+  orders: 1000000
+
+  min_items_per_order: 1
+  max_items_per_order: 4
+
+  return_rate: 0.08

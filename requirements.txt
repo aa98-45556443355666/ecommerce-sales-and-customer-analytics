@@ -1,0 +1,10 @@
+pandas
+numpy
+faker
+psycopg2-binary
+sqlalchemy
+apache-airflow
+pyspark
+pytest
+python-dotenv
+pyyaml

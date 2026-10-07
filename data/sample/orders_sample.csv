@@ -1,0 +1,101 @@
+order_id,customer_id,order_date,order_status,payment_method,shipping_city,shipping_state
+1,501,2025-09-24,Shipped,Credit Card,Pondicherry,Keralam
+2,434,2024-11-04,Delivered,COD,Indore,Manipur
+3,144,2025-12-03,Delivered,Net Banking,Bhopal,Maharashtra
+4,935,2025-02-03,Processing,UPI,Visakhapatnam,Nagaland
+5,14,2025-10-06,Delivered,Debit Card,Vellore,Punjab
+6,175,2025-01-27,Delivered,Net Banking,Panvel,Assam
+7,230,2026-02-15,Delivered,Debit Card,Khora ,Meghalaya
+8,280,2025-03-20,Cancelled,UPI,Sangli-Miraj & Kupwad,Arunachal Pradesh
+9,132,2025-06-11,Delivered,UPI,Kanpur,Manipur
+10,18,2025-12-21,Delivered,Net Banking,Rajahmundry,Keralam
+11,678,2024-10-30,Delivered,Debit Card,Gurgaon,Goa
+12,970,2026-01-15,Processing,Debit Card,Gorakhpur,West Bengal
+13,122,2026-05-30,Delivered,Credit Card,Madhyamgram,Haryana
+14,297,2025-07-28,Delivered,Credit Card,Jorhat,Arunachal Pradesh
+15,507,2024-11-23,Cancelled,Net Banking,Guntur,Karnataka
+16,928,2026-10-03,Delivered,UPI,Bijapur,Sikkim
+17,695,2026-06-26,Delivered,Debit Card,Nandyal,Andhra Pradesh
+18,767,2025-07-13,Delivered,Credit Card,Warangal,Maharashtra
+19,582,2026-06-11,Shipped,Net Banking,Panvel,Keralam
+20,418,2025-09-05,Delivered,Net Banking,Srikakulam,Tripura
+21,200,2025-10-08,Delivered,Debit Card,Morena,Andhra Pradesh
+22,865,2025-03-20,Delivered,Credit Card,Aurangabad,Andhra Pradesh
+23,805,2024-11-17,Shipped,Credit Card,Cuttack,Meghalaya
+24,26,2025-03-19,Shipped,Credit Card,Kottayam,Goa
+25,716,2026-08-11,Delivered,Credit Card,Asansol,Punjab
+26,85,2024-10-23,Delivered,Net Banking,Gwalior,Haryana
+27,739,2026-05-18,Processing,UPI,Sambhal,Meghalaya
+28,826,2026-03-21,Delivered,UPI,Srikakulam,Arunachal Pradesh
+29,132,2025-08-30,Delivered,Debit Card,Kulti,Punjab
+30,434,2025-05-03,Delivered,Credit Card,Chandrapur,Manipur
+31,124,2025-04-19,Delivered,COD,Barasat,Andhra Pradesh
+32,568,2026-02-11,Delivered,Net Banking,Surendranagar Dudhrej,Haryana
+33,928,2025-02-19,Delivered,Net Banking,Mira-Bhayandar,Arunachal Pradesh
+34,81,2024-12-09,Delivered,Debit Card,Bhusawal,Arunachal Pradesh
+35,398,2025-01-24,Delivered,Debit Card,Ulhasnagar,Punjab
+36,974,2024-11-28,Delivered,Debit Card,Kharagpur,Keralam
+37,301,2025-05-06,Delivered,UPI,Davanagere,Tamil Nadu
+38,133,2025-08-16,Delivered,Debit Card,Kanpur,Haryana
+39,489,2024-12-08,Processing,COD,Visakhapatnam,Rajasthan
+40,509,2025-05-25,Delivered,Credit Card,Nanded,Nagaland
+41,663,2026-08-15,Shipped,UPI,North Dumdum,Odisha
+42,314,2026-04-12,Delivered,Debit Card,Aurangabad,Telangana
+43,956,2025-09-21,Shipped,Credit Card,Karawal Nagar,Punjab
+44,522,2026-08-13,Delivered,Net Banking,Maheshtala,Rajasthan
+45,287,2025-08-28,Delivered,COD,Bidhannagar,Rajasthan
+46,961,2025-11-17,Delivered,COD,Malda,Madhya Pradesh
+47,925,2025-03-21,Delivered,Credit Card,Bongaigaon,Rajasthan
+48,500,2026-03-10,Delivered,COD,Kochi,Telangana
+49,25,2026-08-30,Shipped,UPI,Kottayam,Rajasthan
+50,597,2025-04-25,Shipped,Credit Card,Naihati,Nagaland
+51,556,2025-02-25,Delivered,Credit Card,Rohtak,Assam
+52,149,2026-07-13,Processing,COD,Morbi,Madhya Pradesh
+53,634,2024-11-16,Shipped,Net Banking,Jalandhar,Arunachal Pradesh
+54,841,2024-12-16,Processing,Credit Card,Kadapa,Assam
+55,106,2026-09-01,Delivered,UPI,Rajkot,Karnataka
+56,724,2026-09-06,Delivered,Net Banking,Purnia,Madhya Pradesh
+57,141,2025-09-03,Delivered,Net Banking,Tinsukia,Manipur
+58,749,2025-06-28,Delivered,COD,Bareilly,Uttar Pradesh
+59,420,2026-05-14,Processing,Debit Card,Berhampore,Sikkim
+60,7,2025-05-24,Delivered,UPI,Jamshedpur,Keralam
+61,967,2025-02-10,Delivered,Credit Card,Cuttack,Jharkhand
+62,166,2025-03-09,Delivered,Net Banking,Aizawl,Punjab
+63,597,2025-07-04,Cancelled,Credit Card,Junagadh,Haryana
+64,182,2025-08-27,Delivered,UPI,Dibrugarh,Tripura
+65,934,2025-10-15,Delivered,COD,Sikar,Sikkim
+66,739,2025-10-10,Processing,Debit Card,Ajmer,Punjab
+67,805,2025-11-25,Cancelled,Credit Card,Pune,Gujarat
+68,433,2026-03-25,Delivered,Debit Card,Raichur,Nagaland
+69,468,2026-06-06,Shipped,Net Banking,Phusro,Tamil Nadu
+70,635,2025-02-07,Processing,UPI,Katihar,Assam
+71,785,2026-03-31,Delivered,Debit Card,Panvel,Chhattisgarh
+72,847,2025-09-10,Shipped,Credit Card,Bettiah,Manipur
+73,18,2025-07-08,Delivered,UPI,Dindigul,Karnataka
+74,664,2026-09-14,Delivered,UPI,Salem,Punjab
+75,110,2026-03-28,Delivered,Debit Card,Tadipatri,Keralam
+76,288,2025-12-22,Delivered,Debit Card,Saharanpur,West Bengal
+77,830,2025-08-04,Delivered,Debit Card,Panihati,Himachal Pradesh
+78,251,2026-07-07,Delivered,Net Banking,Dhanbad,Karnataka
+79,797,2024-10-13,Delivered,Debit Card,Sagar,Andhra Pradesh
+80,464,2025-12-15,Delivered,Debit Card,Nagaon,Gujarat
+81,233,2026-06-06,Delivered,COD,Fatehpur,Gujarat
+82,335,2026-08-31,Delivered,Net Banking,Pondicherry,Sikkim
+83,531,2026-01-12,Delivered,COD,Dewas,Jharkhand
+84,766,2025-03-09,Delivered,Credit Card,Aurangabad,Goa
+85,607,2024-12-05,Delivered,Net Banking,Miryalaguda,Himachal Pradesh
+86,934,2026-04-20,Processing,Net Banking,Dhule,Meghalaya
+87,868,2026-03-08,Delivered,Debit Card,Allahabad,Sikkim
+88,754,2025-12-29,Shipped,UPI,Kolhapur,West Bengal
+89,604,2026-01-27,Delivered,Debit Card,Ongole,Arunachal Pradesh
+90,290,2025-01-26,Shipped,COD,Latur,Telangana
+91,413,2025-06-14,Cancelled,Net Banking,Kozhikode,Karnataka
+92,119,2026-03-05,Processing,UPI,Katni,Tamil Nadu
+93,375,2026-07-07,Delivered,Credit Card,Kulti,Arunachal Pradesh
+94,927,2026-10-05,Delivered,Debit Card,Madurai,Nagaland
+95,426,2026-04-29,Delivered,COD,Bally,Uttarakhand
+96,114,2026-05-05,Delivered,Debit Card,Rewa,Arunachal Pradesh
+97,652,2026-07-08,Shipped,COD,Bhimavaram,Tamil Nadu
+98,963,2026-05-01,Cancelled,Net Banking,Tiruppur,Bihar
+99,868,2026-04-28,Delivered,Credit Card,Ajmer,West Bengal
+100,275,2025-06-08,Delivered,UPI,Khammam,Rajasthan

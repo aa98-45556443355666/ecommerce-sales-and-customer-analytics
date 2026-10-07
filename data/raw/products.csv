@@ -1,0 +1,101 @@
+product_id,product_name,category,subcategory,brand,price,cost
+1,Qui Cycling,Sports,Cycling,Arora PLC,89844.75,42958.18
+2,Consequuntur Kitchen,Home,Kitchen,Rajagopalan-Bail,12064.14,4890.03
+3,Culpa Skincare,Beauty,Skincare,Bassi and Sons,84256.74,38104.76
+4,Expedita Personal Care,Beauty,Personal Care,Loyal and Sons,11567.88,6580.06
+5,Sunt Decor,Home,Decor,"Arya, Andra and Cherian",44818.92,18665.74
+6,Quis Fitness,Sports,Fitness,"Nigam, Chada and Jain",72941.22,32264.48
+7,Deserunt Furniture,Home,Furniture,Sawhney-Gade,32459.84,22282.03
+8,Inventore Appliance,Home,Appliance,Srinivas-Dubey,34387.71,27818.32
+9,Exercitationem Skincare,Beauty,Skincare,Loke Ltd,82945.83,41416.03
+10,Quisquam Tablet,Electronics,Tablet,Bail Inc,61810.26,37952.77
+11,Corporis Furniture,Home,Furniture,"Minhas, Chauhan and Vaidya",114348.12,48540.76
+12,Nesciunt Camera,Electronics,Camera,Agarwal and Sons,55046.16,38963.5
+13,Alias Sportswear,Sports,Sportswear,Sane Group,28345.4,23442.71
+14,Dignissimos Skincare,Beauty,Skincare,Mangat-Kara,16335.78,7883.62
+15,Vitae Makeup,Beauty,Makeup,Chowdhury-Swamy,91587.33,37289.16
+16,Dolores Appliance,Home,Appliance,Kapur Inc,27105.05,16426.1
+17,Id Outdoor,Sports,Outdoor,Bose-Nath,33153.9,23583.88
+18,Cumque Headphone,Electronics,Headphone,Chad-Bassi,11954.15,6670.09
+19,Sed Tablet,Electronics,Tablet,Gokhale Group,23624.05,11500.09
+20,Quia Camera,Electronics,Camera,Golla-Sandal,49962.71,21970.17
+21,Distinctio Men Clothing,Fashion,Men Clothing,"Mitra, Mangat and Pall",55124.37,35073.2
+22,Corporis Accessories,Fashion,Accessories,Tata-Pillay,93139.65,41646.54
+23,Fuga Makeup,Beauty,Makeup,"Bose, Agate and Dixit",30009.73,19496.42
+24,Ullam Decor,Home,Decor,Nagarajan and Sons,45766.68,34188.28
+25,Molestias Appliance,Home,Appliance,Sridhar-Bhavsar,11779.68,10155.43
+26,Culpa Haircare,Beauty,Haircare,"Sane, Mallick and Dhillon",80650.55,39388.83
+27,Consectetur Fitness,Sports,Fitness,Datta-Gopal,77838.64,35317.24
+28,Molestiae Furniture,Home,Furniture,Nagar-Talwar,44212.99,23054.01
+29,Nisi Furniture,Home,Furniture,Sachdev-Nath,9343.51,7161.89
+30,Deserunt Sportswear,Sports,Sportswear,"Korpal, Rajagopal and Sahota",59806.16,33486.47
+31,Quo Decor,Home,Decor,Yohannan-Walla,61878.21,28348.76
+32,Possimus Outdoor,Sports,Outdoor,"Yadav, Karpe and Rajagopalan",60352.18,31808.97
+33,Blanditiis Furniture,Home,Furniture,"Sama, Vyas and Kanda",43765.02,28048.52
+34,Voluptates Outdoor,Sports,Outdoor,Keer LLC,3017.68,1734.73
+35,A Decor,Home,Decor,Badal LLC,18523.22,10886.32
+36,Quos Makeup,Beauty,Makeup,Deol-Choudhary,62589.66,42699.47
+37,Assumenda Fitness,Sports,Fitness,Patel-Dewan,4747.92,3103.48
+38,Impedit Appliance,Home,Appliance,Dhawan-Sama,30287.95,14820.97
+39,Exercitationem Kitchen,Home,Kitchen,Kapur Inc,61699.3,27940.2
+40,Deserunt Fitness,Sports,Fitness,Dhar Group,56534.92,33282.81
+41,Alias Haircare,Beauty,Haircare,"Samra, Prabhu and Bhagat",56031.9,40738.22
+42,Voluptates Tablet,Electronics,Tablet,Borah Group,1692.53,1331.06
+43,Saepe Kitchen,Home,Kitchen,Balan and Sons,64154.94,36173.5
+44,Maiores Shoes,Fashion,Shoes,Brar and Sons,15033.79,8231.33
+45,Autem Makeup,Beauty,Makeup,Saha and Sons,16271.2,7785.14
+46,Ducimus Women Clothing,Fashion,Women Clothing,Dey-Wable,37313.01,22418.58
+47,Voluptatem Men Clothing,Fashion,Men Clothing,Singhal-Sabharwal,30444.01,15215.3
+48,Labore Furniture,Home,Furniture,Arya-Mangat,23106.73,18218.27
+49,Culpa Fitness,Sports,Fitness,Bhasin Ltd,14879.15,6076.69
+50,Aliquid Kitchen,,Kitchen,"Ghose, Thakur and Dyal",95194.17,45447.32
+51,Accusamus Sportswear,Sports,Sportswear,Sampath-Sha,33041.52,13440.32
+52,Quod Women Clothing,Fashion,Women Clothing,"Kuruvilla, Thaker and Mohan",82555.72,38981.8
+53,Voluptatum Women Clothing,Fashion,Women Clothing,Sampath and Sons,34263.01,22578.2
+54,Fugit Skincare,Beauty,Skincare,Vig Group,11843.21,5000.27
+55,Debitis Haircare,Beauty,Haircare,"Kakar, Rattan and Bhalla",32587.73,22897.66
+56,Est Accessories,Fashion,Accessories,Gour-Brahmbhatt,29822.76,15436.64
+57,Voluptate Cycling,Sports,Cycling,Sood-Munshi,20765.43,9003.28
+58,Ullam Makeup,Beauty,Makeup,"Ravel, Rai and Gala",80553.87,37974.27
+59,Asperiores Outdoor,Sports,Outdoor,Samra-Hayer,43368.42,21718.23
+60,Fugit Appliance,Home,Appliance,Chawla Inc,59375.52,29288.08
+61,Magni Shoes,Fashion,Shoes,"Nayak, Bala and Khatri",7539.02,4405.33
+62,Id Sportswear,Sports,Sportswear,Chhabra Inc,4128.68,2272.39
+63,Error Haircare,Beauty,Haircare,"Apte, More and Guha",22365.23,16627.09
+64,Quod Personal Care,Beauty,Personal Care,Bali and Sons,10395.73,5349.47
+65,Fugiat Women Clothing,Fashion,Women Clothing,Basu PLC,20859.81,8695.53
+66,Perspiciatis Outdoor,Sports,Outdoor,Bava LLC,47151.4,29136.84
+67,Consectetur Furniture,Home,Furniture,Anand-Parikh,34983.82,29627.59
+68,Id Haircare,Beauty,Haircare,Tella-Hayer,86338.44,47936.25
+69,Ipsam Fitness,Sports,Fitness,Parekh-Dayal,49433.1,39180.21
+70,Voluptates Fitness,Sports,Fitness,"Chatterjee, Narula and Reddy",44288.38,24435.58
+71,Provident Furniture,Home,Furniture,Thakkar and Sons,90141.19,46903.76
+72,Alias Shoes,Fashion,Shoes,"Raja, Sood and Barad",35917.37,23779.77
+73,Illum Makeup,Beauty,Makeup,Doshi Ltd,30966.05,16712.14
+74,Officiis Skincare,Beauty,Skincare,Chander Ltd,26010.02,22057.79
+75,Eveniet Accessories,Fashion,Accessories,Dhaliwal Ltd,97576.88,41349.34
+76,Dolorem Furniture,Home,Furniture,"Varty, Virk and Om",13635.62,7184.4
+77,Occaecati Skincare,Beauty,Skincare,Nori LLC,11536.68,5607.07
+78,Magni Haircare,Beauty,Haircare,"Sankar, Baral and Ram",28982.23,14205.44
+79,Excepturi Accessories,Fashion,Accessories,Borde and Sons,79640.81,36404.33
+80,Reiciendis Tablet,Electronics,Tablet,"Tank, Chatterjee and Aurora",13282.71,5565.5
+81,Dicta Men Clothing,Fashion,Men Clothing,Chahal-Tara,14003.51,11664.66
+82,Consequatur Furniture,Home,Furniture,Murthy-Gara,45942.96,27831.65
+83,Impedit Kitchen,Home,Kitchen,Bir LLC,93060.02,41523.53
+84,Repellat Men Clothing,Fashion,Men Clothing,Pandit-Chakraborty,38966.84,15993.52
+85,Aut Appliance,Home,Appliance,Sharma LLC,27103.63,14687.71
+86,Pariatur Accessories,Fashion,Accessories,Sathe-Dey,31249.79,12947.06
+87,Cupiditate Skincare,Beauty,Skincare,"Sura, Baral and Patla",10166.22,8397.47
+88,Illo Mobile,Electronics,Mobile,Rege-Dayal,54444.49,21867.83
+89,Nulla Kitchen,Home,Kitchen,Vala-Murthy,96375.64,44605.53
+90,Minima Accessories,Fashion,Accessories,Sachdev PLC,104993.64,44561.47
+91,Odio Tablet,Electronics,Tablet,Basak-Bhandari,41050.83,26039.15
+92,Exercitationem Shoes,Fashion,Shoes,"Anand, Dubey and Cheema",78963.61,38646.22
+93,Illum Mobile,Electronics,Mobile,Dutt-Rastogi,24027.98,18808.15
+94,Aut Accessories,Fashion,Accessories,Rama Group,56246.77,37390.12
+95,Velit Sportswear,Sports,Sportswear,Palla Group,69123.14,46853.29
+96,Omnis Mobile,Electronics,Mobile,"Warrior, Shroff and Chopra",14343.94,6313.35
+97,Blanditiis Skincare,Beauty,Skincare,Chokshi Group,10904.41,7833.56
+98,Non Outdoor,Sports,Outdoor,Ratti LLC,70034.57,30049.26
+99,At Shoes,Fashion,Shoes,Oommen-Sunder,15661.83,9982.45
+100,Error Skincare,Beauty,Skincare,"Soni, Contractor and Mallick",95806.8,38914.76

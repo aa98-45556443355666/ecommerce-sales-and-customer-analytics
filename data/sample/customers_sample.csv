@@ -1,0 +1,101 @@
+customer_id,first_name,last_name,email,gender,date_of_birth,city,state,country,signup_date
+1,Aryan,Maharaj,udantdewan@example.net,Other,1951-09-28,Gudivada,Bihar,India,2022-09-16
+2,Azad,Balan,kamdarviraj@example.net,Male,1985-09-25,Kishanganj,Telangana,India,2025-05-08
+3,Oni,Kannan,zmall@example.org,Female,1996-05-27,Bhusawal,Haryana,India,2023-06-15
+4,Arunima,Dugal,gayathrichaudry@example.org,Male,1970-08-15,Secunderabad,Chhattisgarh,India,2024-08-28
+5,Aishani,Bassi,hyadav@example.com,Other,1950-02-16,Tadipatri,Bihar,India,2024-09-08
+6,Rehaan,Boase,karibimala@example.org,Other,2002-12-21,Salem,Telangana,India,2024-11-02
+7,Arunima,Setty,nicholas55@example.org,Other,1990-05-16,Madurai,Assam,India,2024-12-30
+8,Yash,Gade,rraghavan@example.net,Other,1991-08-06,Anantapur,Maharashtra,India,2023-03-21
+9,Veer,Balay,nandini41@example.org,Male,2006-11-27,Rajpur Sonarpur,Andhra Pradesh,India,2022-03-28
+10,Meghana,Shanker,alkadewan@example.org,Male,1995-06-18,Bhimavaram,Gujarat,India,2026-01-04
+11,Mohini,Pathak,lakshitupadhyay@example.com,Male,1950-12-14,Bhubaneswar,Mizoram,India,2025-05-29
+12,Nathaniel,Sami,rajanlakshmi@example.net,Other,1976-08-13,Begusarai,Andhra Pradesh,India,2023-01-23
+13,Ishwar,Yadav,harini14@example.com,Other,1955-07-13,Delhi,Gujarat,India,2021-11-10
+14,Xiti,Gokhale,misrayashica@example.net,Other,1958-04-20,Dindigul,Rajasthan,India,2024-01-02
+15,Aadi,Naik,hbahl@example.com,Other,2004-07-24,Mathura,Nagaland,India,2023-02-19
+16,Wridesh,Brar,sunderekapad@example.net,Female,1996-11-17,Warangal,Haryana,India,2022-04-03
+17,Noah,Lanka,ikakar@example.net,Female,1991-09-17,Bijapur,Odisha,India,2025-10-21
+18,Kashvi,Sarma,pdara@example.org,Female,1949-02-14,Jaipur,Uttar Pradesh,India,2025-02-26
+19,Victor,Kannan,bobaldaniel@example.org,Male,1949-05-09,Bathinda,Tripura,India,2026-06-22
+20,Yoshita,Khanna,vedika38@example.org,Male,1993-12-28,Latur,Tamil Nadu,India,2022-05-14
+21,Niharika,Gupta,chatterjeeraagini@example.com,Female,1973-08-04,Bhind,Karnataka,India,2025-10-14
+22,Guneet,Bhat,znori@example.org,Female,1961-09-08,Jhansi,Chhattisgarh,India,2022-03-23
+23,Saumya,Dey,rgoswami@example.com,Male,1961-10-06,Mango,Tripura,India,2026-04-29
+24,Guneet,Bedi,chanderwarjas@example.org,Female,1972-06-03,Ongole,Bihar,India,2026-06-11
+25,Nandini,Bhargava,ladliagate@example.com,Male,1962-10-24,Baranagar,Madhya Pradesh,India,2023-08-01
+26,Vidhi,Dubey,chamankalla@example.org,Male,1984-03-06,Satara,Keralam,India,2025-05-12
+27,Chandresh,Sood,daksheshtrivedi@example.org,Female,2002-09-13,Coimbatore,Punjab,India,2022-04-01
+28,Wahab,Raval,koshybalveer@example.net,Female,1950-05-06,Ballia,Uttar Pradesh,India,2022-05-05
+29,Diya,Lal,diptakhare@example.com,Male,1971-09-13,Dewas,Telangana,India,2026-07-28
+30,Diya,Bora,shankerharish@example.org,Female,1981-05-08,Guna,Nagaland,India,2025-08-26
+31,Kevin,Palla,kondakala@example.com,Male,1955-07-02,Tinsukia,Madhya Pradesh,India,2024-01-07
+32,Abhiram,Mistry,desaiaishani@example.org,Male,2005-04-23,Begusarai,Nagaland,India,2024-05-02
+33,Anita,Manda,hemaljani@example.net,Female,1987-12-05,Dibrugarh,Uttarakhand,India,2023-01-31
+34,Zayan,Behl,sampatharadhana@example.org,Other,1945-01-03,Bikaner,Punjab,India,2025-12-01
+35,Neel,Sathe,handra@example.org,Female,2004-11-10,Bongaigaon,Odisha,India,2023-12-28
+36,Kala,Divan,cdatta@example.com,Male,1969-07-31,Secunderabad,Tamil Nadu,India,2022-01-25
+37,Zaid,Chauhan,niharika92@example.org,Male,2003-08-08,Belgaum,Arunachal Pradesh,India,2023-07-20
+38,Aryan,Gola,nisha34@example.org,Other,1998-05-07,Eluru,Haryana,India,2025-04-08
+39,Upma,Kapadia,trivenipalla@example.com,Female,2000-08-08,Rajahmundry,Assam,India,2022-02-03
+40,Reyansh,Rastogi,arya14@example.com,Male,1988-06-02,Jorhat,West Bengal,India,2021-12-18
+41,Ayaan,D’Alia,pranav94@example.org,Male,1952-02-22,Hapur,Madhya Pradesh,India,2024-07-30
+42,Rajata,Vaidya,rajanranveer@example.com,Female,1947-10-15,Mumbai,Manipur,India,2024-06-06
+43,Ronith,Patla,qboase@example.com,Other,1987-03-04,Amravati,Uttarakhand,India,2026-03-09
+44,Yashica,More,znarain@example.net,Female,1964-11-19,Nellore,Goa,India,2024-04-26
+45,Ladli,Ghosh,nidra80@example.com,Female,1964-04-16,Chinsurah,Keralam,India,2025-05-04
+46,Ekanta,Shroff,rsathe@example.org,Male,1979-07-21,Gulbarga,Sikkim,India,2026-09-11
+47,Bhanumati,Varma,girik34@example.org,Female,1999-08-27,Siliguri,Tamil Nadu,India,2022-06-26
+48,Chakradhar,Konda,dbora@example.com,Other,2005-01-25,Yamunanagar,Rajasthan,India,2021-12-20
+49,Mugdha,Kohli,abdulchhabra@example.com,Male,1959-08-29,Kadapa,Punjab,India,2025-12-19
+50,Chandresh,Krish,shankiaan@example.com,Other,1990-03-12,Mango,Goa,India,2025-09-18
+51,Pooja,Sehgal,vaishnavisengupta@example.com,Other,1995-12-04,Bally,Telangana,India,2026-01-21
+52,Vedhika,Khare,ria14@example.org,Male,1963-04-04,Imphal,Goa,India,2026-03-13
+53,Faris,Devi,vihaanrajagopal@example.net,Female,1955-03-01,Rajkot,Madhya Pradesh,India,2026-05-11
+54,Nikita,Narayanan,dsagar@example.org,Female,2001-06-11,Pali,Rajasthan,India,2025-04-16
+55,Anmol,Rai,wahuja@example.com,Other,1996-01-15,Gurgaon,Nagaland,India,2026-09-24
+56,Thomas,Sura,anjalisarin@example.com,Male,1946-09-28,Naihati,Sikkim,India,2026-05-05
+57,Noah,Sibal,aviramesh@example.net,Female,1983-03-05,Gwalior,Uttarakhand,India,2025-03-15
+58,Krishna,Shenoy,chandreshlad@example.com,Male,1967-01-16,Malda,Haryana,India,2025-05-29
+59,Geetika,Raghavan,oviya41@example.com,Male,1946-01-31,Etawah,Uttar Pradesh,India,2024-07-17
+60,Ekapad,Baria,kotaryan@example.org,Female,1987-01-18,Mathura,Madhya Pradesh,India,2023-09-02
+61,Urvashi,Contractor,udyatikunda@example.com,Female,1956-03-08,Ujjain,Assam,India,2022-11-02
+62,Hritik,Bal,keya63@example.org,Male,1985-01-21,Kota,Odisha,India,2024-05-29
+63,Jai,Barman,priya51@example.net,Other,1988-10-30,Ahmedabad,Karnataka,India,2024-04-29
+64,Vrishti,Cherian,opathak@example.com,Male,1992-11-24,Raebareli,Rajasthan,India,2025-05-03
+65,Anamika,Yohannan,bshroff@example.net,Female,1985-01-31,North Dumdum,Madhya Pradesh,India,2023-04-06
+66,Gabriel,Mallick,wkohli@example.com,Other,1983-07-18,Naihati,Manipur,India,2023-11-07
+67,Warda,Nair,vinayakala@example.com,Male,1999-01-22,Mau,Himachal Pradesh,India,2022-01-03
+68,Anya,Anne,frederickkhurana@example.net,Male,1972-06-03,Miryalaguda,Haryana,India,2024-02-21
+69,Vamakshi,Swaminathan,fbadal@example.com,Other,1959-11-05,Latur,Nagaland,India,2023-10-22
+70,Jyoti,Solanki,pavani85@example.com,Other,1992-08-05,Gopalpur,Himachal Pradesh,India,2024-05-14
+71,Zayan,Kashyap,hansdiya@example.org,Other,1995-04-27,Nellore,Odisha,India,2024-05-15
+72,Veda,Malhotra,harish34@example.org,Female,1969-04-28,Barasat,Odisha,India,2023-08-09
+73,Jonathan,Mahal,bhagatbrinda@example.net,Female,1953-05-11,Kota,Keralam,India,2021-11-18
+74,Bhavani,Singh,vsastry@example.org,Male,1948-04-05,Morena,Chhattisgarh,India,2021-11-13
+75,Dhruv,Rattan,kborah@example.net,Other,1991-06-24,Saharanpur,Meghalaya,India,2022-09-25
+76,Daksha,Chada,jagatsaha@example.net,Male,1985-05-01,Nagaon,Tripura,India,2023-01-12
+77,Shravya,Savant,pushti49@example.net,Male,1948-11-12,Dhule,West Bengal,India,2024-12-30
+78,Aishani,Bumb,wriddhishghose@example.net,Male,1949-11-15,Delhi,Chhattisgarh,India,2023-07-23
+79,Shravya,Singhal,bachittar34@example.net,Other,1964-01-03,Madurai,Goa,India,2025-03-28
+80,Aishani,Hora,icontractor@example.org,Other,1988-11-02,Shimoga,Maharashtra,India,2023-10-01
+81,Ekbal,Bhasin,damyantimani@example.com,Other,1953-03-24,Avadi,Assam,India,2022-12-21
+82,Anita,Tella,fsarma@example.net,Female,1947-06-24,North Dumdum,Madhya Pradesh,India,2025-03-09
+83,Atharv,Chand,anshluthra@example.net,Other,1947-07-03,Nandyal,Manipur,India,2023-11-22
+84,Riya,Mall,rajataswamy@example.org,Other,1976-10-01,Alappuzha,Himachal Pradesh,India,2026-03-06
+85,Ekani,Cheema,forumsabharwal@example.net,Other,1978-06-25,Rewa,West Bengal,India,2024-08-06
+86,Balhaar,Sha,murtyzayyan@example.com,Male,1952-08-27,Kottayam,Sikkim,India,2026-06-11
+87,Turvi,Sachdev,guhazarna@example.com,Other,1987-02-19,Mango,Bihar,India,2021-10-09
+88,Samar,Loke,bhavnasarma@example.net,Other,1977-10-01,Bhopal,Nagaland,India,2022-03-15
+89,Nathan,Mukhopadhyay,reddygirik@example.org,Female,2002-01-09,Surendranagar Dudhrej,Tripura,India,2023-10-19
+90,Mitesh,Tara,yashodhara46@example.com,Other,1976-11-25,Sirsa,Karnataka,India,2022-10-05
+91,Maanav,Rajagopal,yashodadeshpande@example.org,Male,1963-07-26,Mau,Jharkhand,India,2026-06-14
+92,Amara,Agate,chanchal99@example.net,Female,1978-02-01,Amroha,Goa,India,2026-01-30
+93,Veda,Pai,krishna75@example.org,Female,1992-03-25,Aurangabad,Andhra Pradesh,India,2026-05-06
+94,Vivaan,Roy,nadkarniurvashi@example.net,Other,2006-12-04,Kharagpur,Telangana,India,2025-01-07
+95,Warhi,Bansal,yadavinarula@example.org,Female,2004-04-03,Salem,Mizoram,India,2023-01-21
+96,Tanmayi,Aurora,nimratdubey@example.org,Male,1976-09-18,Sonipat,Mizoram,India,2026-03-28
+97,Faris,Narasimhan,onadig@example.net,Male,2005-02-26,Hosur,West Bengal,India,2025-02-21
+98,Ekapad,Keer,utkarsh16@example.org,Other,1996-07-05,Raiganj,Jharkhand,India,2022-01-25
+99,Chandani,Balakrishnan,nairdaksh@example.com,Other,1969-02-27,Chinsurah,Mizoram,India,2023-03-06
+100,Yash,Wali,kgole@example.org,Other,1950-02-20,Udupi,Gujarat,India,2023-01-01
