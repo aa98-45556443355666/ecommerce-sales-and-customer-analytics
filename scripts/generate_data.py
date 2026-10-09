@@ -1,3 +1,4 @@
+from __future__ import annotations
 import argparse
 import random
 from pathlib import Path
@@ -71,6 +72,14 @@ CATEGORIES = {
     ],
 }
 
+RETURN_REASONS = [
+    "Damaged",
+    "Wrong Product",
+    "Product Not Needed",
+    "Late Delivery",
+    "Quality Issue",
+]
+
 
 def load_config(config_path: Path) -> dict:
     """Load project configuration from YAML"""
@@ -91,145 +100,195 @@ def setup_randomness(seed: int) -> Faker:
 
 def generate_customers(count: int, fake: Faker, rng: np.random.Generator) -> pd.DataFrame:
 
-    rows = []
-
-    for cust_id in range(1, count+1):
-        signup_date = fake.date_between(start_date="-5y", end_date="today")
-
-        rows.append(
-            {
-                "customer_id": cust_id,
-                "first_name": fake.first_name(),
-                "last_name": fake.last_name(),
-                "email": fake.email(),
-                "gender": random.choice(
-                    ["Male", "Female", "Other"]
-                ),
-                "date_of_birth": fake.date_of_birth(
+    customers = pd.DataFrame(
+        {
+            "customer_id": np.arange(1, count + 1),
+            "first_name": [
+                fake.first_name()
+                for _ in range(count)
+            ],
+            "last_name": [
+                fake.last_name()
+                for _ in range(count)
+            ],
+            "email": [
+                fake.email()
+                for _ in range(count)
+            ],
+            "gender": rng.choice(
+                ["Male", "Female", "Other"],
+                size=count,
+            ),
+            "date_of_birth": [
+                fake.date_of_birth(
                     minimum_age=18,
                     maximum_age=81,
-                ),
-                "city": fake.city(),
-                "state": random.choice(INDIAN_STATES),
-                "country": "India",
-                "signup_date": signup_date
-            }
+                )
+                for _ in range(count)
+            ],
+            "city": [
+                fake.city()
+                for _ in range(count)
+            ],
+            "state": rng.choice(
+                INDIAN_STATES,
+                size=count,
+            ),
+            "country": "India",
+            "signup_date": pd.to_datetime([
+                fake.date_between(
+                    start_date="-5y",
+                    end_date="today",
+                )
+                for _ in range(count)
+            ]),
+        }
+    )
 
-        )
+    duplicate_count = max(1, int(count * 0.001))
 
-    df = pd.DataFrame(rows)
-
-    # Introduce a small amount of anlomaly in data
     duplicate_indexes = rng.choice(
-        df.index,
-        size=max(1, int(count * 0.001)),
+        customers.index,
+        size=duplicate_count,
         replace=False,
     )
 
-    duplicated_rows = df.loc[duplicate_indexes].copy()
-    df = pd.concat(
-        [df, duplicated_rows],
+    customers = pd.concat(
+        [
+            customers,
+            customers.loc[duplicate_indexes],
+        ],
         ignore_index=True,
     )
 
+    null_email_count = max(1, int(len(customers) * 0.002))
+
     null_email_indexes = rng.choice(
-        df.index,
-        size=max(1, int(len(df) * 0.002)),
+        customers.index,
+        size=null_email_count,
         replace=False,
     )
 
-    df.loc[null_email_indexes, "email"] = None
+    customers.loc[
+        null_email_indexes,
+        "email"
+    ] = None
 
-    return df
+    return customers
 
 
 def generate_products(count: int, fake: Faker, rng: np.random.Generator) -> pd.DataFrame:
 
-    rows = []
-
     category_names = list(CATEGORIES.keys())
 
-    for prod_id in range(1, count+1):
-        category = random.choice(category_names)
+    category = rng.choice(
+        category_names,
+        size=count,
+    )
 
-        subcategory = random.choice(CATEGORIES[category])
+    subcategories = [
+        random.choice(CATEGORIES[c])
+        for c in category
+    ]
 
-        cost = round(float(rng.uniform(200, 50000)),
-                     2,)
-        price = round(
-            cost * float(rng.uniform(1.15, 2.5)),
-            2,
-        )
+    cost = np.round(
+        rng.uniform(200, 50000, size=count),
+        2,
+    )
 
-        rows.append({
-            "product_id": prod_id,
-            "product_name": f"{fake.word().title()} "
-            f"{subcategory}",
+    price = np.round(
+        cost * rng.uniform(1.15, 2.5, size=count),
+        2,
+    )
+
+    products = pd.DataFrame(
+        {
+            "product_id": np.arange(1, count + 1),
+            "product_name": [
+                f"{fake.word().title()} {sub}"
+                for sub in subcategories
+            ],
             "category": category,
-            "subcategory": subcategory,
-            "brand": fake.company(),
+            "subcategory": subcategories,
+            "brand": [
+                fake.company()
+                for _ in range(count)
+            ],
             "price": price,
             "cost": cost,
+        }
+    )
 
-        })
+    null_count = max(1, int(count * 0.001))
 
-    df = pd.DataFrame(rows)
-
-    # Introduce a few missing categories.
     null_indexes = rng.choice(
-        df.index,
-        size=max(1, int(count * 0.001)),
+        products.index,
+        size=null_count,
         replace=False,
     )
 
-    df.loc[null_indexes, "category"] = None
+    products.loc[
+        null_indexes,
+        "category"
+    ] = None
 
-    return df
+    return products
 
 
-def generate_orders(count: int, cust_cnt: int, fake: Faker, rng: np.random.Generator) -> pd.DataFrame:
+def generate_orders(count: int, customer_count: int, fake: Faker, rng: np.random.Generator) -> pd.DataFrame:
 
-    cust_ids = rng.integers(1, cust_cnt+1, size=count)
-
-    dates = pd.to_datetime(pd.Series(fake.date_between(
-        start_date="-2y", end_date="today")for _ in range(count)))
-
-    statuses = rng.choice(
-        [
-            "Delivered",
-            "Shipped",
-            "Processing",
-            "Cancelled",
-        ],
-        size=count,
-        p=[
-            0.72,
-            0.12,
-            0.10,
-            0.06,
-        ],
+    start_date = pd.Timestamp.today() - pd.DateOffset(
+        years=2
     )
 
-    payment_methods = rng.choice(
-        [
-            "UPI",
-            "Credit Card",
-            "Debit Card",
-            "Net Banking",
-            "COD",
-        ],
-        size=count,
-    )
+    end_date = pd.Timestamp.today()
 
-    df = pd.DataFrame(
+    order_dates = pd.to_datetime(
+        rng.integers(
+            start_date.value // 10**9,
+            end_date.value // 10**9,
+            size=count,
+        ),
+        unit="s",
+    ).normalize()
+
+    orders = pd.DataFrame(
         {
             "order_id": np.arange(1, count + 1),
-            "customer_id": cust_ids,
-            "order_date": dates,
-            "order_status": statuses,
-            "payment_method": payment_methods,
+            "customer_id": rng.integers(
+                1,
+                customer_count + 1,
+                size=count,
+            ),
+            "order_date": order_dates,
+            "order_status": rng.choice(
+                [
+                    "Delivered",
+                    "Shipped",
+                    "Processing",
+                    "Cancelled",
+                ],
+                size=count,
+                p=[
+                    0.72,
+                    0.12,
+                    0.10,
+                    0.06,
+                ],
+            ),
+            "payment_method": rng.choice(
+                [
+                    "UPI",
+                    "Credit Card",
+                    "Debit Card",
+                    "Net Banking",
+                    "COD",
+                ],
+                size=count,
+            ),
             "shipping_city": [
-                fake.city() for _ in range(count)
+                fake.city()
+                for _ in range(count)
             ],
             "shipping_state": rng.choice(
                 INDIAN_STATES,
@@ -238,76 +297,87 @@ def generate_orders(count: int, cust_cnt: int, fake: Faker, rng: np.random.Gener
         }
     )
 
-    # Add a small percentage of duplicated orders.
+    duplicate_count = max(
+        1,
+        int(count * 0.0005),
+    )
+
     duplicate_indexes = rng.choice(
-        df.index,
-        size=max(1, int(count * 0.0005)),
+        orders.index,
+        size=duplicate_count,
         replace=False,
     )
 
-    duplicated_rows = df.loc[duplicate_indexes].copy()
-
-    df = pd.concat(
-        [df, duplicated_rows],
+    orders = pd.concat(
+        [
+            orders,
+            orders.loc[duplicate_indexes],
+        ],
         ignore_index=True,
     )
 
-    return df
+    return orders
 
 
-def generate_order_items(order_count: int, product_count: int, product_prices: pd.Series, seed: int) -> pd.DataFrame:
-
-    rows = []
+def generate_order_items(orders: pd.DataFrame, products: pd.DataFrame, seed: int) -> pd.DataFrame:
 
     rng = np.random.default_rng(seed)
 
-    item_id = 1
+    order_ids = orders["order_id"].drop_duplicates()
 
-    for order_id in range(1, order_count + 1):
+    item_counts = rng.integers(
+        1,
+        5,
+        size=len(order_ids),
+    )
 
-        number_of_items = int(
-            rng.integers(1, 5)
-        )
+    total_items = int(item_counts.sum())
 
-        product_ids = rng.choice(
-            np.arange(1, product_count + 1),
-            size=number_of_items,
-            replace=False,
-        )
+    order_id_values = np.repeat(
+        order_ids.to_numpy(),
+        item_counts,
+    )
 
-        for product_id in product_ids:
+    product_ids = rng.integers(
+        1,
+        len(products) + 1,
+        size=total_items,
+    )
 
-            quantity = int(
-                rng.integers(1, 5)
-            )
+    product_price_map = products.set_index(
+        "product_id"
+    )["price"]
 
-            unit_price = float(
-                product_prices.loc[product_id]
-            )
+    unit_prices = product_price_map.loc[
+        product_ids
+    ].to_numpy()
 
-            discount = round(
-                float(
-                    rng.choice(
-                        [0, 0.05, 0.10, 0.15, 0.20]
-                    )
-                ),
-                2,
-            )
+    quantities = rng.integers(
+        1,
+        5,
+        size=total_items,
+    )
 
-            rows.append(
-                {
-                    "item_id": item_id,
-                    "order_id": order_id,
-                    "product_id": int(product_id),
-                    "quantity": quantity,
-                    "unit_price": unit_price,
-                    "discount": discount,
-                }
-            )
+    discounts = rng.choice(
+        [0, 0.05, 0.10, 0.15, 0.20],
+        size=total_items,
+    )
 
-            item_id += 1
+    order_items = pd.DataFrame(
+        {
+            "item_id": np.arange(
+                1,
+                total_items + 1,
+            ),
+            "order_id": order_id_values,
+            "product_id": product_ids,
+            "quantity": quantities,
+            "unit_price": unit_prices,
+            "discount": discounts,
+        }
+    )
 
-    return pd.DataFrame(rows)
+    return order_items
 
 
 def generate_returns(order_items: pd.DataFrame, return_rate: float, seed: int) -> pd.DataFrame:
@@ -325,42 +395,36 @@ def generate_returns(order_items: pd.DataFrame, return_rate: float, seed: int) -
         replace=False,
     )
 
-    selected_items = order_items.loc[
+    selected = order_items.loc[
         selected_indexes
-    ].copy()
+    ].reset_index(drop=True)
 
-    reasons = [
-        "Damaged",
-        "Wrong Product",
-        "Product Not Needed",
-        "Late Delivery",
-        "Quality Issue",
-    ]
+    return_days = rng.integers(
+        1,
+        181,
+        size=return_count,
+    )
+
+    return_dates = (
+        pd.Timestamp.today().normalize()
+        - pd.to_timedelta(
+            return_days,
+            unit="D",
+        )
+    )
 
     returns = pd.DataFrame(
         {
             "return_id": np.arange(
                 1,
-                len(selected_items) + 1,
+                return_count + 1,
             ),
-            "order_id": selected_items[
-                "order_id"
-            ].values,
-            "product_id": selected_items[
-                "product_id"
-            ].values,
-            "return_date": pd.Timestamp.today()
-            - pd.to_timedelta(
-                rng.integers(
-                    1,
-                    180,
-                    size=len(selected_items),
-                ),
-                unit="D",
-            ),
+            "order_id": selected["order_id"],
+            "product_id": selected["product_id"],
+            "return_date": return_dates,
             "return_reason": rng.choice(
-                reasons,
-                size=len(selected_items),
+                RETURN_REASONS,
+                size=return_count,
             ),
         }
     )
@@ -368,28 +432,28 @@ def generate_returns(order_items: pd.DataFrame, return_rate: float, seed: int) -
     return returns
 
 
-def save_dataset(df: pd.DataFrame, output_path: Path) -> None:
+def save_csv(df: pd.DataFrame, path: Path) -> None:
 
-    output_path.parent.mkdir(
+    path.parent.mkdir(
         parents=True,
         exist_ok=True,
     )
 
     df.to_csv(
-        output_path,
+        path,
         index=False,
     )
 
 
-def save_sample(df: pd.DataFrame, output_path: Path, rows: int = 100) -> None:
+def save_sample(df: pd.DataFrame, path: Path, sample_size: int) -> None:
 
-    output_path.parent.mkdir(
+    path.parent.mkdir(
         parents=True,
         exist_ok=True,
     )
 
-    df.head(rows).to_csv(
-        output_path,
+    df.head(sample_size).to_csv(
+        path,
         index=False,
     )
 
@@ -398,7 +462,7 @@ def parse_arguments() -> argparse.Namespace:
 
     parser = argparse.ArgumentParser(
         description=(
-            "Generate synthetic e-commerce datasets."
+            "Generate synthetic e-commerce data."
         )
     )
 
@@ -406,28 +470,24 @@ def parse_arguments() -> argparse.Namespace:
         "--customers",
         type=int,
         default=None,
-        help="Number of customers",
     )
 
     parser.add_argument(
         "--products",
         type=int,
         default=None,
-        help="Number of products",
     )
 
     parser.add_argument(
         "--orders",
         type=int,
         default=None,
-        help="Number of orders",
     )
 
     parser.add_argument(
         "--config",
         type=str,
         default="config/config.yaml",
-        help="Path to YAML configuration",
     )
 
     return parser.parse_args()
@@ -441,42 +501,38 @@ def main() -> None:
         Path(args.config)
     )
 
-    generation_config = config["generation"]
+    generation = config["generation"]
+    data_config = config["data"]
 
-    seed = generation_config["seed"]
+    seed = generation["seed"]
 
     customer_count = (
         args.customers
         if args.customers is not None
-        else generation_config["customers"]
+        else generation["customers"]
     )
 
     product_count = (
         args.products
         if args.products is not None
-        else generation_config["products"]
+        else generation["products"]
     )
 
     order_count = (
         args.orders
         if args.orders is not None
-        else generation_config["orders"]
-    )
-
-    output_dir = Path(
-        config["data"]["output_dir"]
-    )
-
-    sample_dir = Path(
-        config["data"]["sample_dir"]
+        else generation["orders"]
     )
 
     fake = setup_randomness(seed)
 
     rng = np.random.default_rng(seed)
 
-    print("Generating customers...")
+    raw_dir = Path(data_config["raw_dir"])
+    sample_dir = Path(data_config["sample_dir"])
+    sample_size = data_config["sample_rows"]
 
+    print("Generating customers...")
     customers = generate_customers(
         customer_count,
         fake,
@@ -484,7 +540,6 @@ def main() -> None:
     )
 
     print("Generating products...")
-
     products = generate_products(
         product_count,
         fake,
@@ -492,7 +547,6 @@ def main() -> None:
     )
 
     print("Generating orders...")
-
     orders = generate_orders(
         order_count,
         customer_count,
@@ -501,51 +555,44 @@ def main() -> None:
     )
 
     print("Generating order items...")
-
-    product_prices = products.set_index(
-        "product_id"
-    )["price"]
-
     order_items = generate_order_items(
-        order_count=order_count,
-        product_count=product_count,
-        product_prices=product_prices,
-        seed=seed,
+        orders,
+        products,
+        seed,
     )
 
     print("Generating returns...")
-
     returns = generate_returns(
         order_items,
-        generation_config["return_rate"],
-        seed=seed,
+        generation["return_rate"],
+        seed,
     )
 
-    print("Saving datasets...")
+    print("Saving raw datasets...")
 
-    save_dataset(
+    save_csv(
         customers,
-        output_dir / "customers.csv",
+        raw_dir / "customers.csv",
     )
 
-    save_dataset(
+    save_csv(
         products,
-        output_dir / "products.csv",
+        raw_dir / "products.csv",
     )
 
-    save_dataset(
+    save_csv(
         orders,
-        output_dir / "orders.csv",
+        raw_dir / "orders.csv",
     )
 
-    save_dataset(
+    save_csv(
         order_items,
-        output_dir / "order_items.csv",
+        raw_dir / "order_items.csv",
     )
 
-    save_dataset(
+    save_csv(
         returns,
-        output_dir / "returns.csv",
+        raw_dir / "returns.csv",
     )
 
     print("Saving sample datasets...")
@@ -553,35 +600,39 @@ def main() -> None:
     save_sample(
         customers,
         sample_dir / "customers_sample.csv",
+        sample_size,
     )
 
     save_sample(
         products,
         sample_dir / "products_sample.csv",
+        sample_size,
     )
 
     save_sample(
         orders,
         sample_dir / "orders_sample.csv",
+        sample_size,
     )
 
     save_sample(
         order_items,
         sample_dir / "order_items_sample.csv",
+        sample_size,
     )
 
     save_sample(
         returns,
         sample_dir / "returns_sample.csv",
+        sample_size,
     )
 
-    print("\nData generation completed successfully.")
-
-    print(f"Customers    : {len(customers):,}")
-    print(f"Products     : {len(products):,}")
-    print(f"Orders       : {len(orders):,}")
-    print(f"Order Items  : {len(order_items):,}")
-    print(f"Returns      : {len(returns):,}")
+    print("\nGeneration complete.")
+    print(f"Customers:   {len(customers):,}")
+    print(f"Products:    {len(products):,}")
+    print(f"Orders:      {len(orders):,}")
+    print(f"Order Items: {len(order_items):,}")
+    print(f"Returns:     {len(returns):,}")
 
 
 if __name__ == "__main__":

@@ -36,10 +36,12 @@ The project will progressively implement:
 - Configuration management
 - Synthetic e-commerce data generator
 - Sample datasets
+- PostgreSQL staging schema
+- Staging tables for customers, products, orders,
+  order items, and returns
 
 ### Coming Next
 
-- PostgreSQL staging schema
 - Python ingestion pipeline
 - Data quality framework
 - Data warehouse

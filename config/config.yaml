@@ -3,8 +3,10 @@ project:
   country: India
 
 data:
-  output_dir: data/raw
+  raw_dir: data/raw
   sample_dir: data/sample
+  processed_dir: data/processed
+  sample_rows: 100
 
 generation:
   seed: 42
