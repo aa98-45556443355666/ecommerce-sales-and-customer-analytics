@@ -39,10 +39,10 @@ The project will progressively implement:
 - PostgreSQL staging schema
 - Staging tables for customers, products, orders,
   order items, and returns
+- Python ingestion pipeline
 
 ### Coming Next
 
-- Python ingestion pipeline
 - Data quality framework
 - Data warehouse
 - Airflow orchestration

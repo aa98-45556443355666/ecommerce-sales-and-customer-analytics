@@ -218,3 +218,11 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Ignore generated raw datasets
+data/raw/*
+!data/raw/.gitkeep
+
+# Ignore processed datasets
+data/processed/*
+!data/processed/.gitkeep
