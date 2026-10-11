@@ -40,11 +40,14 @@ The project will progressively implement:
 - Staging tables for customers, products, orders,
   order items, and returns
 - Python ingestion pipeline
+- Data quality  validation framework
+- Duplicate, null, range, and referential-integrity checks
+- Automated unit tests for validation logic
 
 ### Coming Next
 
-- Data quality framework
-- Data warehouse
+- Data cleaning and transformation
+- Star-schema data warehouse
 - Airflow orchestration
 - PySpark processing
 - Power BI dashboard
