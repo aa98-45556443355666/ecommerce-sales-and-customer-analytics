@@ -43,10 +43,10 @@ The project will progressively implement:
 - Data quality  validation framework
 - Duplicate, null, range, and referential-integrity checks
 - Automated unit tests for validation logic
+- Data cleaning and transformation
 
 ### Coming Next
 
-- Data cleaning and transformation
 - Star-schema data warehouse
 - Airflow orchestration
 - PySpark processing
