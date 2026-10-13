@@ -44,10 +44,12 @@ The project will progressively implement:
 - Duplicate, null, range, and referential-integrity checks
 - Automated unit tests for validation logic
 - Data cleaning and transformation
+- PostgreSQL star-schema warehouse
+- Warehouse integrity checks
 
 ### Coming Next
 
-- Star-schema data warehouse
+- Analytics SQL
 - Airflow orchestration
 - PySpark processing
 - Power BI dashboard
