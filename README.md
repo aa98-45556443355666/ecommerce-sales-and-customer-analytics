@@ -46,10 +46,13 @@ The project will progressively implement:
 - Data cleaning and transformation
 - PostgreSQL star-schema warehouse
 - Warehouse integrity checks
+- Business KPI SQL
+- Monthly, product, customer and regional analysis
+- RFM-style customer segmentation
+- Return and payment-method analysis
 
 ### Coming Next
 
-- Analytics SQL
 - Airflow orchestration
 - PySpark processing
 - Power BI dashboard
