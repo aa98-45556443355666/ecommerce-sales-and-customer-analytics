@@ -1,0 +1,18 @@
+FROM spark:4.2.0-java21-python3
+
+USER root
+
+RUN mkdir -p /app/spark /app/data/processed \
+    && chown -R spark:spark /app
+
+COPY --chown=spark:spark \
+    spark/sales_aggregation.py \
+    /app/spark/sales_aggregation.py
+
+USER spark
+
+WORKDIR /app
+
+ENTRYPOINT ["/opt/spark/bin/spark-submit"]
+
+CMD ["/app/spark/sales_aggregation.py"]

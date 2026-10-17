@@ -57,6 +57,22 @@ The project will progressively implement:
 - Airflow orchestration
 - Power BI dashboard
 
+
+## Apache Airflow Orchestration
+
+The project uses Apache Airflow to orchestrate the complete
+data engineering workflow.
+
+### Pipeline Tasks
+
+1. Ingest CSV files into PostgreSQL staging tables.
+2. Run staging data quality checks.
+3. Transform staging data into the clean schema.
+4. Build the star-schema data warehouse.
+5. Export the warehouse dataset for Spark.
+6. Run PySpark analytics in a dedicated Docker container.
+
+
 ## Tech Stack
 
 - Python

@@ -1,0 +1,14 @@
+FROM apache/airflow:2.10.5-python3.12
+
+ARG AIRFLOW_VERSION=2.10.5
+
+ARG CONSTRAINT_URL=https://raw.githubusercontent.com/apache/airflow/constraints-2.10.5/constraints-3.12.txt
+
+USER airflow
+
+COPY airflow/requirements-airflow.txt /requirements-airflow.txt
+
+RUN pip install --no-cache-dir \
+    "apache-airflow==${AIRFLOW_VERSION}" \
+    --constraint "${CONSTRAINT_URL}" \
+    -r /requirements-airflow.txt

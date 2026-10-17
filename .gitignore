@@ -226,3 +226,36 @@ data/raw/*
 # Ignore processed datasets
 data/processed/*
 !data/processed/.gitkeep
+
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Airflow-generated files
+airflow/logs/
+airflow.cfg
+airflow.db
+airflow/standalone_admin_password.txt
+
+# Keep the plugins directory tracked
+airflow/plugins/*
+!airflow/plugins/.gitkeep
+
+# Test output
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
