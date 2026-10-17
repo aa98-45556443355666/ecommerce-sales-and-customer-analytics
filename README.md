@@ -50,11 +50,11 @@ The project will progressively implement:
 - Monthly, product, customer and regional analysis
 - RFM-style customer segmentation
 - Return and payment-method analysis
+- PySpark processing
 
 ### Coming Next
 
 - Airflow orchestration
-- PySpark processing
 - Power BI dashboard
 
 ## Tech Stack

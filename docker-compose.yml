@@ -21,5 +21,25 @@ services:
       timeout: 5s
       retries: 5
 
+  spark:
+    image: spark:4.2.0-java21-python3
+    profiles:
+      - spark
+
+    working_dir: /app
+
+    volumes:
+      - ./:/app
+
+    entrypoint:
+      - /opt/spark/bin/spark-submit
+
+    command:
+      - /app/spark/sales_aggregation.py
+
+    environment:
+      PYSPARK_PYTHON: python3
+      PYSPARK_DRIVER_PYTHON: python3
+
 volumes:
   postgres_data:
