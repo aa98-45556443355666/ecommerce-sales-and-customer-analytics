@@ -144,7 +144,7 @@ with DAG(
         python_callable=run_project_script,
         op_kwargs={
             "script_relative_path":
-                "src/transformation/transform_data.py"
+            "src/transformation/incremental_transform_data.py"
         },
     )
 
@@ -157,7 +157,7 @@ with DAG(
         python_callable=run_project_script,
         op_kwargs={
             "script_relative_path":
-                "src/warehouse/load_warehouse.py"
+            "src/warehouse/load_incremental_warehouse.py"
         },
     )
 

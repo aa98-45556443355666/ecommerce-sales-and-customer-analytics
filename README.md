@@ -51,10 +51,10 @@ The project will progressively implement:
 - RFM-style customer segmentation
 - Return and payment-method analysis
 - PySpark processing
+- Airflow orchestration
 
 ### Coming Next
 
-- Airflow orchestration
 - Power BI dashboard
 
 
@@ -72,6 +72,33 @@ data engineering workflow.
 5. Export the warehouse dataset for Spark.
 6. Run PySpark analytics in a dedicated Docker container.
 
+## Incremental ETL
+
+The project implements file-level change detection and
+idempotent upserts across staging, clean, and warehouse layers.
+
+### Incremental Ingestion
+
+- Calculates SHA-256 fingerprints of source CSV files.
+- Stores source fingerprints and row counts in
+  `etl_control.source_file_state`.
+- Skips unchanged files when their fingerprint, file size,
+  and staging row count match the recorded state.
+- Reloads only the staging table whose source file changed.
+- Updates file state and staging data in one transaction.
+
+### Incremental Transformation
+
+- Uses PostgreSQL upserts to insert new and update changed
+  clean records.
+- Avoids updates when business attributes have not changed.
+- Preserves existing clean tables instead of truncating them.
+
+### Incremental Warehouse
+
+- Upserts customer, product, region, and date dimensions.
+- Inserts new fact records and updates changed fact records.
+- Validates fact counts and financial calculations.
 
 ## Tech Stack
 
