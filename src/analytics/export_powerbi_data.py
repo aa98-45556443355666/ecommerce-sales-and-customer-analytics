@@ -43,7 +43,9 @@ EXPORT_OBJECTS = [
     ("analytics", "vw_payment_method_performance"),
     ("analytics", "vw_order_status_performance"),
     ("analytics", "vw_weekday_performance"),
-    ("analytics", "vw_powerbi_sales_fact")
+    ("analytics", "vw_powerbi_sales_fact"),
+    ("analytics", "vw_customer_segment_membership"),
+    ("analytics", "vw_return_detail")
 ]
 
 
