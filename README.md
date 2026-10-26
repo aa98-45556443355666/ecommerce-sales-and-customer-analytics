@@ -52,11 +52,15 @@ The project will progressively implement:
 - Return and payment-method analysis
 - PySpark processing
 - Airflow orchestration
+- Incremental ETL and upserts
+- Power BI reporting views
+- Power BI CSV export pipeline
 
-### Coming Next
+### Dashboard
 
-- Power BI dashboard
-
+The Power BI reporting layer exports curated datasets from
+PostgreSQL for executive, product, customer, regional, and
+return analytics.
 
 ## Apache Airflow Orchestration
 
@@ -99,6 +103,13 @@ idempotent upserts across staging, clean, and warehouse layers.
 - Upserts customer, product, region, and date dimensions.
 - Inserts new fact records and updates changed fact records.
 - Validates fact counts and financial calculations.
+
+
+## Automated Testing
+
+This project includes automated tests for core data engineering
+utilities and data quality validation.
+
 
 ## Tech Stack
 
