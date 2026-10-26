@@ -110,6 +110,12 @@ idempotent upserts across staging, clean, and warehouse layers.
 This project includes automated tests for core data engineering
 utilities and data quality validation.
 
+## Power BI Export Validation
+
+The project includes a validation utility for the CSV files used
+by the Power BI star-schema model.
+
+
 
 ## Tech Stack
 
