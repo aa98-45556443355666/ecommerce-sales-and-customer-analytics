@@ -115,6 +115,19 @@ utilities and data quality validation.
 The project includes a validation utility for the CSV files used
 by the Power BI star-schema model.
 
+## Extended Power BI Data Quality Checks
+
+The Power BI export validator checks the core star-schema exports
+and the customer and return-detail reporting exports.
+
+Additional checks include:
+
+- Customer segment membership key uniqueness
+- Return-detail key uniqueness
+- Return dates matching the exported date dimension
+- Return customers having a matching customer-segment membership
+- Customer-segment consistency between membership and return data
+- One return record per row in the current return-detail view
 
 
 ## Tech Stack
