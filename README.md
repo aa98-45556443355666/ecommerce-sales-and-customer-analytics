@@ -129,6 +129,25 @@ Additional checks include:
 - Customer-segment consistency between membership and return data
 - One return record per row in the current return-detail view
 
+## Airflow Power BI Export Tasks
+
+The Airflow pipeline includes two tasks for the Power BI reporting
+layer after the warehouse load:
+
+1. `export_powerbi_data` generates the required reporting CSV files.
+2. `validate_powerbi_exports` validates the CSVs and their key relationships.
+
+The output is written to:
+
+`data/processed/powerbi_output/`
+
+The validation task fails if required exports, columns, or configured
+key relationships are missing or invalid.
+
+The scheduler requires access to the project scripts and the
+PostgreSQL service. The SQL views used by the exporter must already
+exist in the reporting database.
+
 
 ## Tech Stack
 

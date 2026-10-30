@@ -2,3 +2,4 @@ apache-airflow-providers-docker==4.0.0
 psycopg2-binary
 python-dotenv
 PyYAML
+pandas==2.1.4

@@ -29,16 +29,28 @@ PROJECT_DIR = Path(
 # ---------------------------------------------------------
 
 def run_project_script(script_relative_path: str) -> None:
-    """Run an existing project script as an Airflow task."""
-
-    script_path = (
-        PROJECT_DIR / script_relative_path
+    """
+    Run a project Python script inside the Airflow scheduler container.
+    Raise an exception if the script is missing or fails.
+    """
+    project_root = Path(
+        os.environ.get(
+            "ECOMMERCE_PROJECT_ROOT",
+            "/opt/airflow/project",
+        )
     ).resolve()
 
-    # Do not allow paths outside the project root.
-    if not script_path.is_relative_to(PROJECT_DIR):
+    script_path = (project_root / script_relative_path).resolve()
+
+    # Prevent accidental execution of paths outside the project.
+    if not script_path.is_relative_to(project_root):
         raise ValueError(
-            "Script path must remain inside the project directory."
+            f"Script path is outside project root: {script_path}"
+        )
+
+    if not project_root.is_dir():
+        raise FileNotFoundError(
+            f"Project directory not found: {project_root}"
         )
 
     if not script_path.is_file():
@@ -48,32 +60,41 @@ def run_project_script(script_relative_path: str) -> None:
 
     env = os.environ.copy()
 
-    env["PYTHONPATH"] = str(PROJECT_DIR)
-
-    logger.info(
-        "Running project script: %s",
-        script_relative_path,
+    # Use the PostgreSQL service name from Docker Compose.
+    # Use the PostgreSQL service name from Docker Compose.
+# load_data.py reads POSTGRES_HOST, not DB_HOST.
+    env["POSTGRES_HOST"] = os.environ.get(
+        "POWERBI_DB_HOST",
+        "ecommerce_postgres",
     )
 
+    print(f"Running project script: {script_path}")
+
     subprocess.run(
-        [
-            sys.executable,
-            str(script_path),
-        ],
-        cwd=str(PROJECT_DIR),
+        [sys.executable, str(script_path)],
+        cwd=str(project_root),
         env=env,
         check=True,
     )
 
-    logger.info(
-        "Completed project script: %s",
-        script_relative_path,
+
+def export_powerbi_data() -> None:
+    """Generate the reporting CSV files for Power BI."""
+    run_project_script(
+        "src/analytics/export_powerbi_data.py"
     )
 
+
+def validate_powerbi_exports() -> None:
+    """Validate all required Power BI reporting CSVs."""
+    run_project_script(
+        "src/analytics/validate_powerbi_exports.py"
+    )
 
 # ---------------------------------------------------------
 # DAG DEFINITION
 # ---------------------------------------------------------
+
 
 default_args = {
     "owner": "data-engineering",
@@ -216,15 +237,38 @@ with DAG(
         execution_timeout=timedelta(hours=1),
     )
 
+    powerbi_export_task = PythonOperator(
+        task_id="export_powerbi_data",
+        python_callable=export_powerbi_data,
+    )
+
+    powerbi_validation_task = PythonOperator(
+        task_id="validate_powerbi_exports",
+        python_callable=validate_powerbi_exports,
+    )
+
     # -----------------------------------------------------
     # TASK DEPENDENCIES
     # -----------------------------------------------------
 
+    # Main ETL pipeline
     (
         ingest_staging
         >> validate_staging
         >> transform_clean
         >> build_warehouse
+    )
+
+    # Branch 1: Spark analytics
+    (
+        build_warehouse
         >> export_spark_input
         >> spark_analytics
+    )
+
+    # Branch 2: Power BI reporting
+    (
+        build_warehouse
+        >> powerbi_export_task
+        >> powerbi_validation_task
     )

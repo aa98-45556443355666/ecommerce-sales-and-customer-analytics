@@ -201,6 +201,11 @@ services:
 
     command: scheduler
 
+    environment:
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: "postgresql+psycopg2://airflow:${AIRFLOW_DB_PASSWORD:?Add AIRFLOW_DB_PASSWORD to .env}@airflow-db:5432/airflow"
+      ECOMMERCE_PROJECT_ROOT: /opt/airflow/project
+      POWERBI_DB_HOST: ecommerce_postgres
+
     volumes:
       - ./airflow/dags:/opt/airflow/dags
       - ./airflow/logs:/opt/airflow/logs
