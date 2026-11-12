@@ -22,16 +22,13 @@ OUTPUT_DIR = (
 )
 
 
-# Table/view identifiers are fixed and defined in this repository.
 EXPORT_OBJECTS = [
-    # Star-schema warehouse tables: for an interactive model.
     ("warehouse", "dim_customer"),
     ("warehouse", "dim_product"),
     ("warehouse", "dim_date"),
     ("warehouse", "dim_region"),
     ("warehouse", "fact_sales"),
 
-    # Ready-to-use analytical reporting views.
     ("analytics", "vw_executive_kpis"),
     ("analytics", "vw_monthly_sales"),
     ("analytics", "vw_category_performance"),
@@ -167,7 +164,6 @@ def main() -> int:
 
             for schema_name, object_name in EXPORT_OBJECTS:
 
-                # Use a simple filename for Power BI/Excel.
                 filename = (
                     object_name.removeprefix("vw_")
                     + ".csv"

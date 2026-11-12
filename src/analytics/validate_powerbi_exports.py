@@ -179,7 +179,6 @@ def validate_powerbi_exports(export_dir: str | Path) -> list[str]:
             continue
 
         try:
-            # Read identifiers as strings so leading zeros are preserved.
             df = pd.read_csv(file_path, dtype="string")
         except (
             OSError,

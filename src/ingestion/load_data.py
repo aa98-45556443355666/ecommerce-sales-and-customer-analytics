@@ -228,7 +228,7 @@ def load_changed_files(files: list[dict], database_config: dict) -> dict:
 
         with connection.cursor() as cursor:
 
-            # Create the control table if it does not exist.
+            
             cursor.execute(
                 CONTROL_SQL.read_text(
                     encoding="utf-8"
@@ -260,8 +260,6 @@ def load_changed_files(files: list[dict], database_config: dict) -> dict:
 
                 previous_state = cursor.fetchone()
 
-                # Read the current staging count to detect manual
-                # truncation/corruption even when the CSV is unchanged.
                 cursor.execute(
                     f"SELECT COUNT(*) FROM {table_name}"
                 )
@@ -298,7 +296,6 @@ def load_changed_files(files: list[dict], database_config: dict) -> dict:
                     file_name,
                 )
 
-                # Only this file's staging table is refreshed.
                 cursor.execute(
                     f"TRUNCATE TABLE {table_name}"
                 )

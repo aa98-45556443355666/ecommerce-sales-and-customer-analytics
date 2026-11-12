@@ -224,30 +224,30 @@ def run_warehouse_pipeline() -> dict[str, int]:
 
         with connection.cursor() as cursor:
 
-            # First make sure clean source tables are ready.
+    
             clean_counts = validate_clean_tables(
                 cursor
             )
 
-            # Create warehouse objects.
+            
             execute_sql_file(
                 cursor,
                 SQL_FILES[0],
             )
 
-            # Full-refresh dimensions and clear the old fact.
+            
             execute_sql_file(
                 cursor,
                 SQL_FILES[1],
             )
 
-            # Load the fact table using the populated dimensions.
+            
             execute_sql_file(
                 cursor,
                 SQL_FILES[2],
             )
 
-            # Validate before committing.
+            
             validate_fact_sales(
                 cursor,
                 clean_counts,

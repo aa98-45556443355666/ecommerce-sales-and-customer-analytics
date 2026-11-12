@@ -42,7 +42,6 @@ def run_project_script(script_relative_path: str) -> None:
 
     script_path = (project_root / script_relative_path).resolve()
 
-    # Prevent accidental execution of paths outside the project.
     if not script_path.is_relative_to(project_root):
         raise ValueError(
             f"Script path is outside project root: {script_path}"
@@ -60,9 +59,6 @@ def run_project_script(script_relative_path: str) -> None:
 
     env = os.environ.copy()
 
-    # Use the PostgreSQL service name from Docker Compose.
-    # Use the PostgreSQL service name from Docker Compose.
-# load_data.py reads POSTGRES_HOST, not DB_HOST.
     env["POSTGRES_HOST"] = os.environ.get(
         "POWERBI_DB_HOST",
         "ecommerce_postgres",
@@ -111,8 +107,6 @@ with DAG(
         "transformation, warehouse and Spark analytics."
     ),
 
-    # Manual trigger until incremental source ingestion
-    # is implemented.
     schedule=None,
 
     start_date=datetime(2026, 1, 1),
@@ -211,7 +205,6 @@ with DAG(
         docker_url="unix://var/run/docker.sock",
         api_version="auto",
 
-        # Same named Docker volume used by the exporter.
         mounts=[
             Mount(
                 source="ecommerce_processed_data",
@@ -225,8 +218,6 @@ with DAG(
             "PYSPARK_DRIVER_PYTHON": "python3",
         },
 
-        # Match the shared volume's permission setup.
-        # The official Spark image's spark UID is 185.
         user="185:0",
 
         mount_tmp_dir=False,

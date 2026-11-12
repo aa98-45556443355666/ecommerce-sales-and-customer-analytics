@@ -185,19 +185,19 @@ def run_transformation() -> tuple[dict, dict]:
                 "All staging tables contain data."
             )
 
-            # Create clean schema and tables.
+    
             execute_sql_file(
                 cursor,
                 SQL_FILES[0],
             )
 
-            # Refresh and populate the clean layer.
+    
             execute_sql_file(
                 cursor,
                 SQL_FILES[1],
             )
 
-            # Retrieve results before committing.
+    
             clean_counts = get_table_counts(
                 cursor,
                 table_position=1,

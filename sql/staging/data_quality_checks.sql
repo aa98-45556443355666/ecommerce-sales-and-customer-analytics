@@ -4,7 +4,6 @@
 
 WITH checks AS (
 
-    -- Table availability
     SELECT
         'Customers table is not empty' AS check_name,
         COUNT(*)::BIGINT AS measured_value,
@@ -50,7 +49,6 @@ WITH checks AS (
 
     UNION ALL
 
-    -- Intentional synthetic data issues
     SELECT
         'Duplicate customer ID groups',
         COUNT(*)::BIGINT,
@@ -99,7 +97,6 @@ WITH checks AS (
 
     UNION ALL
 
-    -- Critical validation checks
     SELECT
         'Duplicate product ID groups',
         COUNT(*)::BIGINT,

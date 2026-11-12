@@ -145,7 +145,6 @@ def zero_money():
 def create_spark_session() -> SparkSession:
     """Create a local Spark session."""
 
-    # Use the same Python executable for Spark workers.
     os.environ.setdefault(
         "PYSPARK_PYTHON",
         sys.executable,
@@ -908,8 +907,6 @@ def main() -> int:
             "weekday_sales": build_weekday_sales(sales),
         }
 
-        # Customer segmentation depends on the calculated
-        # customer-performance report.
         reports["customer_segments"] = (
             build_customer_segments(
                 reports["customer_performance"]

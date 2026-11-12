@@ -151,8 +151,6 @@ def export_spark_input() -> int:
         exist_ok=True,
     )
 
-    # Export to a temporary file first to avoid leaving a
-    # partially written output if extraction fails.
     temporary_file = OUTPUT_FILE.with_name(
         OUTPUT_FILE.name + ".tmp"
     )

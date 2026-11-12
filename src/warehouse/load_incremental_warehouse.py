@@ -131,19 +131,19 @@ def run_incremental_warehouse() -> dict:
                         "Run incremental transformation first."
                     )
 
-            # Create tables/indexes if not already present.
+        
             execute_sql_file(
                 cursor,
                 SQL_FILES[0],
             )
 
-            # Upsert dimensions without deleting existing rows.
+        
             execute_sql_file(
                 cursor,
                 SQL_FILES[1],
             )
 
-            # Insert/update fact rows.
+        
             execute_sql_file(
                 cursor,
                 SQL_FILES[2],

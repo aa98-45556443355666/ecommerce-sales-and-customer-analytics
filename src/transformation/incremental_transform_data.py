@@ -110,7 +110,7 @@ def run_incremental_transformation() -> dict:
 
         with connection.cursor() as cursor:
 
-            # Fail early if staging is not ready.
+        
             staging_counts = {}
 
             for name, table_name in STAGING_TABLES.items():
@@ -126,13 +126,13 @@ def run_incremental_transformation() -> dict:
                         "Run ingestion before transformation."
                     )
 
-            # Create schema/tables if not present.
+            
             execute_sql_file(
                 cursor,
                 SQL_FILES[0],
             )
 
-            # Idempotent upserts. No clean-table TRUNCATE.
+        
             execute_sql_file(
                 cursor,
                 SQL_FILES[1],

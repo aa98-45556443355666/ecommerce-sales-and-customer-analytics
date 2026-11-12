@@ -1,7 +1,6 @@
 -- ============================================================
 -- STAGING VALIDATION QUERIES
 -- ============================================================
--- Check that the staging schema exists.
 
 SELECT schema_name
 FROM information_schema.schemata

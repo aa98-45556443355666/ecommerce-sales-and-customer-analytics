@@ -110,7 +110,6 @@ DO NOTHING;
 
 
 -- DATE DIMENSION
--- Add missing dates while keeping existing date keys.
 
 WITH source_dates AS (
 
